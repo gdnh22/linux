@@ -1,0 +1,7 @@
+vi wangfeng.txt
+:wq
+
+可以保存wangfeng.txt文件
+
+rm wangfeng.txt，删除文件
+
