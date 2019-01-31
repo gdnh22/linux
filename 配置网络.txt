@@ -1,0 +1,21 @@
+ip addr
+查看IP
+
+进入配置目录
+cd /etc/sysconfig/network-scripts/
+
+找到一个ifcfg-eno开头的文件，例如“ifcfg-eno16777736”
+
+使用vi命令编辑此文件
+
+修改其中的ONBOOT=no，将no改为yes。
+
+按ESC键，输入:wq退出
+
+输入service network restart，重启网络。
+
+再次输入ip addr，查看结果。
+
+完。
+
+

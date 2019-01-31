@@ -1,0 +1,14 @@
+yum install gcc
+yum install g++
+
+gcc编译的是c程序
+g++编译C++程序
+
+g++ wang.cpp
+
+g++ wang.cpp -o wang
+
+执行程序时加上./
+./a.out
+
+./wang

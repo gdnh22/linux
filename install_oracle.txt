@@ -1,0 +1,2 @@
+root用户无法安装oracle
+

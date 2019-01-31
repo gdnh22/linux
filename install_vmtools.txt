@@ -1,0 +1,13 @@
+需要安装gnome环境
+
+点击菜单，安装VM TOOLS后，解压vmware-tools-distrib，在终端模式下输入：
+
+./vmware-install.pl
+
+开始安装，一路回车键。
+
+需要安装net-tools，否则ifconfig项检测无法通过。
+
+kernel headers可以跳过，但推荐安装。
+
+
