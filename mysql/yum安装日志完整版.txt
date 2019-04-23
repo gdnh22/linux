@@ -1,0 +1,820 @@
+Xshell for Xmanager Enterprise 5 (Build 1249)
+Copyright (c) 2002-2017 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[e:\~]$ 
+
+Connecting to 192.168.100.100:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+WARNING! The remote SSH server rejected X11 forwarding request.
+Last login: Sat Apr 13 20:30:27 2019
+[root@cdh1 ~]# cd /etc/yum.repos.d
+[root@cdh1 yum.repos.d]# vi CentOS-Base.repo
+[root@cdh1 yum.repos.d]# vi CentOS-Base.reop
+[root@cdh1 yum.repos.d]# ls
+CentOS-Base.repo.bak  CentOS-Debuginfo.repo  CentOS-Media.repo    CentOS-Vault.repo
+CentOS-CR.repo        CentOS-fasttrack.repo  CentOS-Sources.repo
+[root@cdh1 yum.repos.d]# mv CentOS-Base.repo.bak CentOS-Base.repo
+[root@cdh1 yum.repos.d]# vi CentOS-Media.repo 
+[root@cdh1 yum.repos.d]# yum clean all
+已加载插件：fastestmirror
+正在清理软件源： base extras updates
+Cleaning up list of fastest mirrors
+Other repos take up 18 M of disk space (use --verbose for details)
+[root@cdh1 yum.repos.d]# wget http://mirrors.aliyun.com/repo/Centos-7.repo
+--2019-04-13 20:44:31--  http://mirrors.aliyun.com/repo/Centos-7.repo
+正在解析主机 mirrors.aliyun.com (mirrors.aliyun.com)... 150.138.121.227, 150.138.121.230, 150.138.121.231, ...
+正在连接 mirrors.aliyun.com (mirrors.aliyun.com)|150.138.121.227|:80... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：2523 (2.5K) [application/octet-stream]
+正在保存至: “Centos-7.repo”
+
+100%[========================================================================================>] 2,523       --.-K/s 用时 0s      
+
+2019-04-13 20:44:31 (388 MB/s) - 已保存 “Centos-7.repo” [2523/2523])
+
+[root@cdh1 yum.repos.d]# mv CentOS-Base.repo CentOS-Base.repo.bak
+[root@cdh1 yum.repos.d]# mv CentOS-7.repo CentOS-Base.repo
+mv: 无法获取"CentOS-7.repo" 的文件状态(stat): 没有那个文件或目录
+[root@cdh1 yum.repos.d]# mv Centos-7.repo CentOS-Base.repo
+[root@cdh1 yum.repos.d]# yum clean all
+已加载插件：fastestmirror
+正在清理软件源： base extras updates
+Other repos take up 18 M of disk space (use --verbose for details)
+[root@cdh1 yum.repos.d]# yum makecache
+已加载插件：fastestmirror
+Determining fastest mirrors
+y * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+base                                                                                                       | 3.6 kB  00:00:00     
+extras                                                                                                     | 3.4 kB  00:00:00     
+updates                                                                                                    | 3.4 kB  00:00:00     
+base/7/x86_64/primary_db       FAILED                                          
+http://mirrors.cloud.aliyuncs.com/centos/7/os/x86_64/repodata/6614b3605d961a4aaec45d74ac4e5e713e517debb3ee454a1c91097955780697-primary.sqlite.bz2: [Errno 14] curl#6 - "Could not resolve host: mirrors.cloud.aliyuncs.com; Unknown error"
+正在尝试其它镜像。
+(1/12): base/7/x86_64/group_gz                                                                             | 166 kB  00:00:00     
+(2/12): extras/7/x86_64/filelists_db                                                                       | 236 kB  00:00:00     
+(3/12): extras/7/x86_64/primary_db                                                                         | 188 kB  00:00:00     
+(4/12): extras/7/x86_64/other_db                                                                           | 120 kB  00:00:00     
+(5/12): base/7/x86_64/other_db                                                                             | 2.6 MB  00:00:00     
+(6/12): updates/7/x86_64/primary_db                                                                        | 3.4 MB  00:00:00     
+(7/12): updates/7/x86_64/filelists_db                                                                      | 3.0 MB  00:00:00     
+(8/12): updates/7/x86_64/other_db                                                                          | 487 kB  00:00:00     
+(9/12): base/7/x86_64/primary_db                                                                           | 6.0 MB  00:00:00     
+base/7/x86_64/filelists_db     FAILED                                          
+http://mirrors.aliyuncs.com/centos/7/os/x86_64/repodata/a0ec5a4708a1026db100d4799c404c9ed48a9371a4bab234a1355f86628a244a-filelists.sqlite.bz2: [Errno 14] curl#7 - "Failed connect to mirrors.aliyuncs.com:80; Connection refused"
+正在尝试其它镜像。
+extras/7/x86_64/prestodelta    FAILED                                          
+http://mirrors.aliyuncs.com/centos/7/extras/x86_64/repodata/d8379207c9e4fcb835cfcc3ca01ec20415f22208563625ad2384f1b79279edba-prestodelta.xml.gz: [Errno 14] curl#7 - "Failed connect to mirrors.aliyuncs.com:80; Connection refused"
+正在尝试其它镜像。
+(10/12): extras/7/x86_64/prestodelta                                                                       |  52 kB  00:00:00     
+updates/7/x86_64/prestodelta   FAILED                                          
+http://mirrors.aliyuncs.com/centos/7/updates/x86_64/repodata/7dde3611682e418d67b0c2fa12ba7e67a707d0fbcde221c7e50f9197d4404cf0-prestodelta.xml.gz: [Errno 14] curl#7 - "Failed connect to mirrors.aliyuncs.com:80; Connection refused"
+正在尝试其它镜像。
+(11/12): updates/7/x86_64/prestodelta                                                                      | 507 kB  00:00:00     
+(12/12): base/7/x86_64/filelists_db                                                                        | 7.1 MB  00:00:00     
+元数据缓存已建立
+[root@cdh1 yum.repos.d]# yum update
+已加载插件：fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+正在解决依赖关系
+--> 正在检查事务
+---> 软件包 NetworkManager.x86_64.1.1.12.0-6.el7 将被 升级
+---> 软件包 NetworkManager.x86_64.1.1.12.0-10.el7_6 将被 更新
+---> 软件包 NetworkManager-libnm.x86_64.1.1.12.0-6.el7 将被 升级
+---> 软件包 NetworkManager-libnm.x86_64.1.1.12.0-10.el7_6 将被 更新
+---> 软件包 NetworkManager-team.x86_64.1.1.12.0-6.el7 将被 升级
+---> 软件包 NetworkManager-team.x86_64.1.1.12.0-10.el7_6 将被 更新
+---> 软件包 NetworkManager-tui.x86_64.1.1.12.0-6.el7 将被 升级
+---> 软件包 NetworkManager-tui.x86_64.1.1.12.0-10.el7_6 将被 更新
+---> 软件包 bind-libs-lite.x86_64.32.9.9.4-72.el7 将被 升级
+---> 软件包 bind-libs-lite.x86_64.32.9.9.4-73.el7_6 将被 更新
+---> 软件包 bind-license.noarch.32.9.9.4-72.el7 将被 升级
+---> 软件包 bind-license.noarch.32.9.9.4-73.el7_6 将被 更新
+---> 软件包 cronie.x86_64.0.1.4.11-19.el7 将被 升级
+---> 软件包 cronie.x86_64.0.1.4.11-20.el7_6 将被 更新
+---> 软件包 cronie-anacron.x86_64.0.1.4.11-19.el7 将被 升级
+---> 软件包 cronie-anacron.x86_64.0.1.4.11-20.el7_6 将被 更新
+---> 软件包 dbus.x86_64.1.1.10.24-12.el7 将被 升级
+---> 软件包 dbus.x86_64.1.1.10.24-13.el7_6 将被 更新
+---> 软件包 dbus-libs.x86_64.1.1.10.24-12.el7 将被 升级
+---> 软件包 dbus-libs.x86_64.1.1.10.24-13.el7_6 将被 更新
+---> 软件包 device-mapper.x86_64.7.1.02.149-8.el7 将被 升级
+---> 软件包 device-mapper.x86_64.7.1.02.149-10.el7_6.3 将被 更新
+---> 软件包 device-mapper-event.x86_64.7.1.02.149-8.el7 将被 升级
+---> 软件包 device-mapper-event.x86_64.7.1.02.149-10.el7_6.3 将被 更新
+---> 软件包 device-mapper-event-libs.x86_64.7.1.02.149-8.el7 将被 升级
+---> 软件包 device-mapper-event-libs.x86_64.7.1.02.149-10.el7_6.3 将被 更新
+---> 软件包 device-mapper-libs.x86_64.7.1.02.149-8.el7 将被 升级
+---> 软件包 device-mapper-libs.x86_64.7.1.02.149-10.el7_6.3 将被 更新
+---> 软件包 freetype.x86_64.0.2.8-12.el7 将被 升级
+---> 软件包 freetype.x86_64.0.2.8-12.el7_6.1 将被 更新
+---> 软件包 glibc.x86_64.0.2.17-260.el7 将被 升级
+---> 软件包 glibc.x86_64.0.2.17-260.el7_6.4 将被 更新
+---> 软件包 glibc-common.x86_64.0.2.17-260.el7 将被 升级
+---> 软件包 glibc-common.x86_64.0.2.17-260.el7_6.4 将被 更新
+---> 软件包 grub2.x86_64.1.2.02-0.76.el7.centos 将被 升级
+---> 软件包 grub2.x86_64.1.2.02-0.76.el7.centos.1 将被 更新
+---> 软件包 grub2-common.noarch.1.2.02-0.76.el7.centos 将被 升级
+---> 软件包 grub2-common.noarch.1.2.02-0.76.el7.centos.1 将被 更新
+---> 软件包 grub2-pc.x86_64.1.2.02-0.76.el7.centos 将被 升级
+---> 软件包 grub2-pc.x86_64.1.2.02-0.76.el7.centos.1 将被 更新
+---> 软件包 grub2-pc-modules.noarch.1.2.02-0.76.el7.centos 将被 升级
+---> 软件包 grub2-pc-modules.noarch.1.2.02-0.76.el7.centos.1 将被 更新
+---> 软件包 grub2-tools.x86_64.1.2.02-0.76.el7.centos 将被 升级
+---> 软件包 grub2-tools.x86_64.1.2.02-0.76.el7.centos.1 将被 更新
+---> 软件包 grub2-tools-extra.x86_64.1.2.02-0.76.el7.centos 将被 升级
+---> 软件包 grub2-tools-extra.x86_64.1.2.02-0.76.el7.centos.1 将被 更新
+---> 软件包 grub2-tools-minimal.x86_64.1.2.02-0.76.el7.centos 将被 升级
+---> 软件包 grub2-tools-minimal.x86_64.1.2.02-0.76.el7.centos.1 将被 更新
+---> 软件包 ipset.x86_64.0.6.38-2.el7 将被 升级
+---> 软件包 ipset.x86_64.0.6.38-3.el7_6 将被 更新
+---> 软件包 ipset-libs.x86_64.0.6.38-2.el7 将被 升级
+---> 软件包 ipset-libs.x86_64.0.6.38-3.el7_6 将被 更新
+---> 软件包 kernel.x86_64.0.3.10.0-957.10.1.el7 将被 安装
+---> 软件包 kernel-tools.x86_64.0.3.10.0-957.el7 将被 升级
+---> 软件包 kernel-tools.x86_64.0.3.10.0-957.10.1.el7 将被 更新
+---> 软件包 kernel-tools-libs.x86_64.0.3.10.0-957.el7 将被 升级
+---> 软件包 kernel-tools-libs.x86_64.0.3.10.0-957.10.1.el7 将被 更新
+---> 软件包 krb5-libs.x86_64.0.1.15.1-34.el7 将被 升级
+---> 软件包 krb5-libs.x86_64.0.1.15.1-37.el7_6 将被 更新
+---> 软件包 libblkid.x86_64.0.2.23.2-59.el7 将被 升级
+---> 软件包 libblkid.x86_64.0.2.23.2-59.el7_6.1 将被 更新
+---> 软件包 libgcc.x86_64.0.4.8.5-36.el7 将被 升级
+---> 软件包 libgcc.x86_64.0.4.8.5-36.el7_6.1 将被 更新
+---> 软件包 libgomp.x86_64.0.4.8.5-36.el7 将被 升级
+---> 软件包 libgomp.x86_64.0.4.8.5-36.el7_6.1 将被 更新
+---> 软件包 libmount.x86_64.0.2.23.2-59.el7 将被 升级
+---> 软件包 libmount.x86_64.0.2.23.2-59.el7_6.1 将被 更新
+---> 软件包 libsmartcols.x86_64.0.2.23.2-59.el7 将被 升级
+---> 软件包 libsmartcols.x86_64.0.2.23.2-59.el7_6.1 将被 更新
+---> 软件包 libssh2.x86_64.0.1.4.3-12.el7 将被 升级
+---> 软件包 libssh2.x86_64.0.1.4.3-12.el7_6.2 将被 更新
+---> 软件包 libstdc++.x86_64.0.4.8.5-36.el7 将被 升级
+---> 软件包 libstdc++.x86_64.0.4.8.5-36.el7_6.1 将被 更新
+---> 软件包 libuuid.x86_64.0.2.23.2-59.el7 将被 升级
+---> 软件包 libuuid.x86_64.0.2.23.2-59.el7_6.1 将被 更新
+---> 软件包 lvm2.x86_64.7.2.02.180-8.el7 将被 升级
+---> 软件包 lvm2.x86_64.7.2.02.180-10.el7_6.3 将被 更新
+---> 软件包 lvm2-libs.x86_64.7.2.02.180-8.el7 将被 升级
+---> 软件包 lvm2-libs.x86_64.7.2.02.180-10.el7_6.3 将被 更新
+---> 软件包 nss.x86_64.0.3.36.0-7.el7_5 将被 升级
+---> 软件包 nss.x86_64.0.3.36.0-7.1.el7_6 将被 更新
+---> 软件包 nss-pem.x86_64.0.1.0.3-5.el7 将被 升级
+---> 软件包 nss-pem.x86_64.0.1.0.3-5.el7_6.1 将被 更新
+---> 软件包 nss-sysinit.x86_64.0.3.36.0-7.el7_5 将被 升级
+---> 软件包 nss-sysinit.x86_64.0.3.36.0-7.1.el7_6 将被 更新
+---> 软件包 nss-tools.x86_64.0.3.36.0-7.el7_5 将被 升级
+---> 软件包 nss-tools.x86_64.0.3.36.0-7.1.el7_6 将被 更新
+---> 软件包 nss-util.x86_64.0.3.36.0-1.el7_5 将被 升级
+---> 软件包 nss-util.x86_64.0.3.36.0-1.1.el7_6 将被 更新
+---> 软件包 openldap.x86_64.0.2.4.44-20.el7 将被 升级
+---> 软件包 openldap.x86_64.0.2.4.44-21.el7_6 将被 更新
+---> 软件包 openssl.x86_64.1.1.0.2k-16.el7 将被 升级
+---> 软件包 openssl.x86_64.1.1.0.2k-16.el7_6.1 将被 更新
+---> 软件包 openssl-libs.x86_64.1.1.0.2k-16.el7 将被 升级
+---> 软件包 openssl-libs.x86_64.1.1.0.2k-16.el7_6.1 将被 更新
+---> 软件包 perl.x86_64.4.5.16.3-293.el7 将被 升级
+---> 软件包 perl.x86_64.4.5.16.3-294.el7_6 将被 更新
+---> 软件包 perl-Pod-Escapes.noarch.1.1.04-293.el7 将被 升级
+---> 软件包 perl-Pod-Escapes.noarch.1.1.04-294.el7_6 将被 更新
+---> 软件包 perl-libs.x86_64.4.5.16.3-293.el7 将被 升级
+---> 软件包 perl-libs.x86_64.4.5.16.3-294.el7_6 将被 更新
+---> 软件包 perl-macros.x86_64.4.5.16.3-293.el7 将被 升级
+---> 软件包 perl-macros.x86_64.4.5.16.3-294.el7_6 将被 更新
+---> 软件包 policycoreutils.x86_64.0.2.5-29.el7 将被 升级
+---> 软件包 policycoreutils.x86_64.0.2.5-29.el7_6.1 将被 更新
+---> 软件包 polkit.x86_64.0.0.112-18.el7 将被 升级
+---> 软件包 polkit.x86_64.0.0.112-18.el7_6.1 将被 更新
+---> 软件包 python.x86_64.0.2.7.5-76.el7 将被 升级
+---> 软件包 python.x86_64.0.2.7.5-77.el7_6 将被 更新
+---> 软件包 python-libs.x86_64.0.2.7.5-76.el7 将被 升级
+---> 软件包 python-libs.x86_64.0.2.7.5-77.el7_6 将被 更新
+---> 软件包 python-perf.x86_64.0.3.10.0-957.el7 将被 升级
+---> 软件包 python-perf.x86_64.0.3.10.0-957.10.1.el7 将被 更新
+---> 软件包 selinux-policy.noarch.0.3.13.1-229.el7 将被 升级
+---> 软件包 selinux-policy.noarch.0.3.13.1-229.el7_6.9 将被 更新
+---> 软件包 selinux-policy-targeted.noarch.0.3.13.1-229.el7 将被 升级
+---> 软件包 selinux-policy-targeted.noarch.0.3.13.1-229.el7_6.9 将被 更新
+---> 软件包 shadow-utils.x86_64.2.4.1.5.1-25.el7 将被 升级
+---> 软件包 shadow-utils.x86_64.2.4.1.5.1-25.el7_6.1 将被 更新
+---> 软件包 systemd.x86_64.0.219-62.el7 将被 升级
+---> 软件包 systemd.x86_64.0.219-62.el7_6.5 将被 更新
+---> 软件包 systemd-libs.x86_64.0.219-62.el7 将被 升级
+---> 软件包 systemd-libs.x86_64.0.219-62.el7_6.5 将被 更新
+---> 软件包 systemd-sysv.x86_64.0.219-62.el7 将被 升级
+---> 软件包 systemd-sysv.x86_64.0.219-62.el7_6.5 将被 更新
+---> 软件包 tuned.noarch.0.2.10.0-6.el7 将被 升级
+---> 软件包 tuned.noarch.0.2.10.0-6.el7_6.3 将被 更新
+---> 软件包 tzdata.noarch.0.2018e-3.el7 将被 升级
+---> 软件包 tzdata.noarch.0.2019a-1.el7 将被 更新
+---> 软件包 util-linux.x86_64.0.2.23.2-59.el7 将被 升级
+---> 软件包 util-linux.x86_64.0.2.23.2-59.el7_6.1 将被 更新
+---> 软件包 xfsprogs.x86_64.0.4.5.0-18.el7 将被 升级
+---> 软件包 xfsprogs.x86_64.0.4.5.0-19.el7_6 将被 更新
+--> 解决依赖关系完成
+
+依赖关系解决
+
+==================================================================================================================================
+ Package                                架构                 版本                                     源                     大小
+==================================================================================================================================
+正在安装:
+ kernel                                 x86_64               3.10.0-957.10.1.el7                      updates                48 M
+正在更新:
+ NetworkManager                         x86_64               1:1.12.0-10.el7_6                        updates               1.7 M
+ NetworkManager-libnm                   x86_64               1:1.12.0-10.el7_6                        updates               1.4 M
+ NetworkManager-team                    x86_64               1:1.12.0-10.el7_6                        updates               159 k
+ NetworkManager-tui                     x86_64               1:1.12.0-10.el7_6                        updates               239 k
+ bind-libs-lite                         x86_64               32:9.9.4-73.el7_6                        updates               741 k
+ bind-license                           noarch               32:9.9.4-73.el7_6                        updates                87 k
+ cronie                                 x86_64               1.4.11-20.el7_6                          updates                91 k
+ cronie-anacron                         x86_64               1.4.11-20.el7_6                          updates                36 k
+ dbus                                   x86_64               1:1.10.24-13.el7_6                       updates               245 k
+ dbus-libs                              x86_64               1:1.10.24-13.el7_6                       updates               169 k
+ device-mapper                          x86_64               7:1.02.149-10.el7_6.3                    updates               292 k
+ device-mapper-event                    x86_64               7:1.02.149-10.el7_6.3                    updates               188 k
+ device-mapper-event-libs               x86_64               7:1.02.149-10.el7_6.3                    updates               188 k
+ device-mapper-libs                     x86_64               7:1.02.149-10.el7_6.3                    updates               320 k
+ freetype                               x86_64               2.8-12.el7_6.1                           updates               380 k
+ glibc                                  x86_64               2.17-260.el7_6.4                         updates               3.7 M
+ glibc-common                           x86_64               2.17-260.el7_6.4                         updates                12 M
+ grub2                                  x86_64               1:2.02-0.76.el7.centos.1                 updates                31 k
+ grub2-common                           noarch               1:2.02-0.76.el7.centos.1                 updates               728 k
+ grub2-pc                               x86_64               1:2.02-0.76.el7.centos.1                 updates                31 k
+ grub2-pc-modules                       noarch               1:2.02-0.76.el7.centos.1                 updates               846 k
+ grub2-tools                            x86_64               1:2.02-0.76.el7.centos.1                 updates               1.8 M
+ grub2-tools-extra                      x86_64               1:2.02-0.76.el7.centos.1                 updates               995 k
+ grub2-tools-minimal                    x86_64               1:2.02-0.76.el7.centos.1                 updates               172 k
+ ipset                                  x86_64               6.38-3.el7_6                             updates                43 k
+ ipset-libs                             x86_64               6.38-3.el7_6                             updates                50 k
+ kernel-tools                           x86_64               3.10.0-957.10.1.el7                      updates               7.1 M
+ kernel-tools-libs                      x86_64               3.10.0-957.10.1.el7                      updates               7.0 M
+ krb5-libs                              x86_64               1.15.1-37.el7_6                          updates               803 k
+ libblkid                               x86_64               2.23.2-59.el7_6.1                        updates               181 k
+ libgcc                                 x86_64               4.8.5-36.el7_6.1                         updates               102 k
+ libgomp                                x86_64               4.8.5-36.el7_6.1                         updates               157 k
+ libmount                               x86_64               2.23.2-59.el7_6.1                        updates               182 k
+ libsmartcols                           x86_64               2.23.2-59.el7_6.1                        updates               140 k
+ libssh2                                x86_64               1.4.3-12.el7_6.2                         updates               135 k
+ libstdc++                              x86_64               4.8.5-36.el7_6.1                         updates               305 k
+ libuuid                                x86_64               2.23.2-59.el7_6.1                        updates                82 k
+ lvm2                                   x86_64               7:2.02.180-10.el7_6.3                    updates               1.3 M
+ lvm2-libs                              x86_64               7:2.02.180-10.el7_6.3                    updates               1.1 M
+ nss                                    x86_64               3.36.0-7.1.el7_6                         updates               835 k
+ nss-pem                                x86_64               1.0.3-5.el7_6.1                          updates                74 k
+ nss-sysinit                            x86_64               3.36.0-7.1.el7_6                         updates                62 k
+ nss-tools                              x86_64               3.36.0-7.1.el7_6                         updates               515 k
+ nss-util                               x86_64               3.36.0-1.1.el7_6                         updates                78 k
+ openldap                               x86_64               2.4.44-21.el7_6                          updates               356 k
+ openssl                                x86_64               1:1.0.2k-16.el7_6.1                      updates               493 k
+ openssl-libs                           x86_64               1:1.0.2k-16.el7_6.1                      updates               1.2 M
+ perl                                   x86_64               4:5.16.3-294.el7_6                       updates               8.0 M
+ perl-Pod-Escapes                       noarch               1:1.04-294.el7_6                         updates                51 k
+ perl-libs                              x86_64               4:5.16.3-294.el7_6                       updates               688 k
+ perl-macros                            x86_64               4:5.16.3-294.el7_6                       updates                44 k
+ policycoreutils                        x86_64               2.5-29.el7_6.1                           updates               916 k
+ polkit                                 x86_64               0.112-18.el7_6.1                         updates               168 k
+ python                                 x86_64               2.7.5-77.el7_6                           updates                94 k
+ python-libs                            x86_64               2.7.5-77.el7_6                           updates               5.6 M
+ python-perf                            x86_64               3.10.0-957.10.1.el7                      updates               7.1 M
+ selinux-policy                         noarch               3.13.1-229.el7_6.9                       updates               483 k
+ selinux-policy-targeted                noarch               3.13.1-229.el7_6.9                       updates               6.9 M
+ shadow-utils                           x86_64               2:4.1.5.1-25.el7_6.1                     updates               1.1 M
+ systemd                                x86_64               219-62.el7_6.5                           updates               5.1 M
+ systemd-libs                           x86_64               219-62.el7_6.5                           updates               407 k
+ systemd-sysv                           x86_64               219-62.el7_6.5                           updates                84 k
+ tuned                                  noarch               2.10.0-6.el7_6.3                         updates               254 k
+ tzdata                                 noarch               2019a-1.el7                              updates               494 k
+ util-linux                             x86_64               2.23.2-59.el7_6.1                        updates               2.0 M
+ xfsprogs                               x86_64               4.5.0-19.el7_6                           updates               897 k
+
+事务概要
+==================================================================================================================================
+安装   1 软件包
+升级  66 软件包
+
+总下载量：137 M
+Is this ok [y/d/N]: y
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+(1/67): NetworkManager-libnm-1.12.0-10.el7_6.x86_64.rpm                                                    | 1.4 MB  00:00:00     
+(2/67): NetworkManager-team-1.12.0-10.el7_6.x86_64.rpm                                                     | 159 kB  00:00:00     
+(3/67): NetworkManager-1.12.0-10.el7_6.x86_64.rpm                                                          | 1.7 MB  00:00:00     
+(4/67): NetworkManager-tui-1.12.0-10.el7_6.x86_64.rpm                                                      | 239 kB  00:00:00     
+(5/67): bind-libs-lite-9.9.4-73.el7_6.x86_64.rpm                                                           | 741 kB  00:00:00     
+(6/67): bind-license-9.9.4-73.el7_6.noarch.rpm                                                             |  87 kB  00:00:00     
+(7/67): cronie-1.4.11-20.el7_6.x86_64.rpm                                                                  |  91 kB  00:00:00     
+(8/67): cronie-anacron-1.4.11-20.el7_6.x86_64.rpm                                                          |  36 kB  00:00:00     
+(9/67): dbus-libs-1.10.24-13.el7_6.x86_64.rpm                                                              | 169 kB  00:00:00     
+(10/67): dbus-1.10.24-13.el7_6.x86_64.rpm                                                                  | 245 kB  00:00:00     
+(11/67): device-mapper-event-1.02.149-10.el7_6.3.x86_64.rpm                                                | 188 kB  00:00:00     
+(12/67): device-mapper-1.02.149-10.el7_6.3.x86_64.rpm                                                      | 292 kB  00:00:00     
+(13/67): device-mapper-event-libs-1.02.149-10.el7_6.3.x86_64.rpm                                           | 188 kB  00:00:00     
+(14/67): device-mapper-libs-1.02.149-10.el7_6.3.x86_64.rpm                                                 | 320 kB  00:00:00     
+(15/67): freetype-2.8-12.el7_6.1.x86_64.rpm                                                                | 380 kB  00:00:00     
+(16/67): glibc-2.17-260.el7_6.4.x86_64.rpm                                                                 | 3.7 MB  00:00:00     
+(17/67): grub2-2.02-0.76.el7.centos.1.x86_64.rpm                                                           |  31 kB  00:00:00     
+(18/67): grub2-common-2.02-0.76.el7.centos.1.noarch.rpm                                                    | 728 kB  00:00:00     
+(19/67): grub2-pc-2.02-0.76.el7.centos.1.x86_64.rpm                                                        |  31 kB  00:00:00     
+(20/67): glibc-common-2.17-260.el7_6.4.x86_64.rpm                                                          |  12 MB  00:00:00     
+(21/67): grub2-pc-modules-2.02-0.76.el7.centos.1.noarch.rpm                                                | 846 kB  00:00:00     
+(22/67): grub2-tools-extra-2.02-0.76.el7.centos.1.x86_64.rpm                                               | 995 kB  00:00:00     
+(23/67): grub2-tools-2.02-0.76.el7.centos.1.x86_64.rpm                                                     | 1.8 MB  00:00:00     
+(24/67): grub2-tools-minimal-2.02-0.76.el7.centos.1.x86_64.rpm                                             | 172 kB  00:00:00     
+(25/67): ipset-6.38-3.el7_6.x86_64.rpm                                                                     |  43 kB  00:00:00     
+(26/67): ipset-libs-6.38-3.el7_6.x86_64.rpm                                                                |  50 kB  00:00:00     
+(27/67): kernel-tools-3.10.0-957.10.1.el7.x86_64.rpm                                                       | 7.1 MB  00:00:00     
+(28/67): kernel-tools-libs-3.10.0-957.10.1.el7.x86_64.rpm                                                  | 7.0 MB  00:00:00     
+(29/67): krb5-libs-1.15.1-37.el7_6.x86_64.rpm                                                              | 803 kB  00:00:00     
+(30/67): libblkid-2.23.2-59.el7_6.1.x86_64.rpm                                                             | 181 kB  00:00:00     
+(31/67): libgcc-4.8.5-36.el7_6.1.x86_64.rpm                                                                | 102 kB  00:00:00     
+(32/67): libgomp-4.8.5-36.el7_6.1.x86_64.rpm                                                               | 157 kB  00:00:00     
+(33/67): libmount-2.23.2-59.el7_6.1.x86_64.rpm                                                             | 182 kB  00:00:00     
+(34/67): libsmartcols-2.23.2-59.el7_6.1.x86_64.rpm                                                         | 140 kB  00:00:00     
+(35/67): libssh2-1.4.3-12.el7_6.2.x86_64.rpm                                                               | 135 kB  00:00:00     
+(36/67): libstdc++-4.8.5-36.el7_6.1.x86_64.rpm                                                             | 305 kB  00:00:00     
+(37/67): libuuid-2.23.2-59.el7_6.1.x86_64.rpm                                                              |  82 kB  00:00:00     
+(38/67): lvm2-2.02.180-10.el7_6.3.x86_64.rpm                                                               | 1.3 MB  00:00:00     
+(39/67): lvm2-libs-2.02.180-10.el7_6.3.x86_64.rpm                                                          | 1.1 MB  00:00:00     
+(40/67): kernel-3.10.0-957.10.1.el7.x86_64.rpm                                                             |  48 MB  00:00:03     
+(41/67): nss-3.36.0-7.1.el7_6.x86_64.rpm                                                                   | 835 kB  00:00:00     
+(42/67): nss-pem-1.0.3-5.el7_6.1.x86_64.rpm                                                                |  74 kB  00:00:00     
+(43/67): nss-sysinit-3.36.0-7.1.el7_6.x86_64.rpm                                                           |  62 kB  00:00:00     
+(44/67): nss-tools-3.36.0-7.1.el7_6.x86_64.rpm                                                             | 515 kB  00:00:00     
+(45/67): nss-util-3.36.0-1.1.el7_6.x86_64.rpm                                                              |  78 kB  00:00:00     
+(46/67): openldap-2.4.44-21.el7_6.x86_64.rpm                                                               | 356 kB  00:00:00     
+(47/67): openssl-1.0.2k-16.el7_6.1.x86_64.rpm                                                              | 493 kB  00:00:00     
+(48/67): openssl-libs-1.0.2k-16.el7_6.1.x86_64.rpm                                                         | 1.2 MB  00:00:00     
+(49/67): perl-Pod-Escapes-1.04-294.el7_6.noarch.rpm                                                        |  51 kB  00:00:00     
+(50/67): perl-libs-5.16.3-294.el7_6.x86_64.rpm                                                             | 688 kB  00:00:00     
+(51/67): perl-macros-5.16.3-294.el7_6.x86_64.rpm                                                           |  44 kB  00:00:00     
+(52/67): policycoreutils-2.5-29.el7_6.1.x86_64.rpm                                                         | 916 kB  00:00:00     
+(53/67): polkit-0.112-18.el7_6.1.x86_64.rpm                                                                | 168 kB  00:00:00     
+(54/67): python-2.7.5-77.el7_6.x86_64.rpm                                                                  |  94 kB  00:00:00     
+(55/67): perl-5.16.3-294.el7_6.x86_64.rpm                                                                  | 8.0 MB  00:00:00     
+(56/67): python-libs-2.7.5-77.el7_6.x86_64.rpm                                                             | 5.6 MB  00:00:00     
+(57/67): selinux-policy-3.13.1-229.el7_6.9.noarch.rpm                                                      | 483 kB  00:00:00     
+(58/67): python-perf-3.10.0-957.10.1.el7.x86_64.rpm                                                        | 7.1 MB  00:00:00     
+(59/67): selinux-policy-targeted-3.13.1-229.el7_6.9.noarch.rpm                                             | 6.9 MB  00:00:00     
+(60/67): shadow-utils-4.1.5.1-25.el7_6.1.x86_64.rpm                                                        | 1.1 MB  00:00:00     
+(61/67): systemd-libs-219-62.el7_6.5.x86_64.rpm                                                            | 407 kB  00:00:00     
+(62/67): systemd-sysv-219-62.el7_6.5.x86_64.rpm                                                            |  84 kB  00:00:00     
+(63/67): tuned-2.10.0-6.el7_6.3.noarch.rpm                                                                 | 254 kB  00:00:00     
+(64/67): tzdata-2019a-1.el7.noarch.rpm                                                                     | 494 kB  00:00:00     
+(65/67): systemd-219-62.el7_6.5.x86_64.rpm                                                                 | 5.1 MB  00:00:00     
+(66/67): xfsprogs-4.5.0-19.el7_6.x86_64.rpm                                                                | 897 kB  00:00:00     
+(67/67): util-linux-2.23.2-59.el7_6.1.x86_64.rpm                                                           | 2.0 MB  00:00:00     
+----------------------------------------------------------------------------------------------------------------------------------
+总计                                                                                               24 MB/s | 137 MB  00:00:05     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  正在更新    : libgcc-4.8.5-36.el7_6.1.x86_64                                                                              1/133 
+  正在更新    : 1:grub2-common-2.02-0.76.el7.centos.1.noarch                                                                2/133 
+  正在更新    : 1:grub2-pc-modules-2.02-0.76.el7.centos.1.noarch                                                            3/133 
+  正在更新    : 32:bind-license-9.9.4-73.el7_6.noarch                                                                       4/133 
+  正在更新    : tzdata-2019a-1.el7.noarch                                                                                   5/133 
+  正在更新    : glibc-common-2.17-260.el7_6.4.x86_64                                                                        6/133 
+  正在更新    : glibc-2.17-260.el7_6.4.x86_64                                                                               7/133 
+  正在更新    : systemd-libs-219-62.el7_6.5.x86_64                                                                          8/133 
+  正在更新    : nss-util-3.36.0-1.1.el7_6.x86_64                                                                            9/133 
+  正在更新    : libuuid-2.23.2-59.el7_6.1.x86_64                                                                           10/133 
+  正在更新    : libblkid-2.23.2-59.el7_6.1.x86_64                                                                          11/133 
+  正在更新    : krb5-libs-1.15.1-37.el7_6.x86_64                                                                           12/133 
+  正在更新    : 1:openssl-libs-1.0.2k-16.el7_6.1.x86_64                                                                    13/133 
+  正在更新    : 2:shadow-utils-4.1.5.1-25.el7_6.1.x86_64                                                                   14/133 
+  正在更新    : python-libs-2.7.5-77.el7_6.x86_64                                                                          15/133 
+  正在更新    : python-2.7.5-77.el7_6.x86_64                                                                               16/133 
+  正在更新    : libmount-2.23.2-59.el7_6.1.x86_64                                                                          17/133 
+  正在更新    : python-perf-3.10.0-957.10.1.el7.x86_64                                                                     18/133 
+  正在更新    : nss-sysinit-3.36.0-7.1.el7_6.x86_64                                                                        19/133 
+  正在更新    : nss-3.36.0-7.1.el7_6.x86_64                                                                                20/133 
+  正在更新    : nss-pem-1.0.3-5.el7_6.1.x86_64                                                                             21/133 
+  正在更新    : 1:NetworkManager-libnm-1.12.0-10.el7_6.x86_64                                                              22/133 
+  正在更新    : nss-tools-3.36.0-7.1.el7_6.x86_64                                                                          23/133 
+  正在更新    : 1:dbus-libs-1.10.24-13.el7_6.x86_64                                                                        24/133 
+  正在更新    : systemd-219-62.el7_6.5.x86_64                                                                              25/133 
+  正在更新    : 1:dbus-1.10.24-13.el7_6.x86_64                                                                             26/133 
+  正在更新    : polkit-0.112-18.el7_6.1.x86_64                                                                             27/133 
+  正在更新    : 1:NetworkManager-1.12.0-10.el7_6.x86_64                                                                    28/133 
+  正在更新    : cronie-anacron-1.4.11-20.el7_6.x86_64                                                                      29/133 
+  正在更新    : cronie-1.4.11-20.el7_6.x86_64                                                                              30/133 
+  正在更新    : 4:perl-macros-5.16.3-294.el7_6.x86_64                                                                      31/133 
+  正在更新    : 4:perl-libs-5.16.3-294.el7_6.x86_64                                                                        32/133 
+  正在更新    : 4:perl-5.16.3-294.el7_6.x86_64                                                                             33/133 
+  正在更新    : libsmartcols-2.23.2-59.el7_6.1.x86_64                                                                      34/133 
+  正在更新    : util-linux-2.23.2-59.el7_6.1.x86_64                                                                        35/133 
+  正在更新    : policycoreutils-2.5-29.el7_6.1.x86_64                                                                      36/133 
+  正在更新    : 7:device-mapper-libs-1.02.149-10.el7_6.3.x86_64                                                            37/133 
+  正在更新    : 7:device-mapper-1.02.149-10.el7_6.3.x86_64                                                                 38/133 
+  正在更新    : 7:device-mapper-event-libs-1.02.149-10.el7_6.3.x86_64                                                      39/133 
+  正在更新    : 1:grub2-tools-minimal-2.02-0.76.el7.centos.1.x86_64                                                        40/133 
+  正在更新    : 1:grub2-tools-2.02-0.76.el7.centos.1.x86_64                                                                41/133 
+  正在更新    : 7:device-mapper-event-1.02.149-10.el7_6.3.x86_64                                                           42/133 
+  正在更新    : 7:lvm2-libs-2.02.180-10.el7_6.3.x86_64                                                                     43/133 
+  正在更新    : selinux-policy-3.13.1-229.el7_6.9.noarch                                                                   44/133 
+  正在更新    : freetype-2.8-12.el7_6.1.x86_64                                                                             45/133 
+  正在更新    : 1:grub2-tools-extra-2.02-0.76.el7.centos.1.x86_64                                                          46/133 
+  正在更新    : 1:grub2-pc-2.02-0.76.el7.centos.1.x86_64                                                                   47/133 
+  正在更新    : kernel-tools-libs-3.10.0-957.10.1.el7.x86_64                                                               48/133 
+  正在更新    : ipset-libs-6.38-3.el7_6.x86_64                                                                             49/133 
+  正在更新    : ipset-6.38-3.el7_6.x86_64                                                                                  50/133 
+  正在更新    : kernel-tools-3.10.0-957.10.1.el7.x86_64                                                                    51/133 
+  正在更新    : 1:grub2-2.02-0.76.el7.centos.1.x86_64                                                                      52/133 
+  正在更新    : selinux-policy-targeted-3.13.1-229.el7_6.9.noarch                                                          53/133 
+  正在更新    : 7:lvm2-2.02.180-10.el7_6.3.x86_64                                                                          54/133 
+  正在更新    : tuned-2.10.0-6.el7_6.3.noarch                                                                              55/133 
+  正在更新    : 1:perl-Pod-Escapes-1.04-294.el7_6.noarch                                                                   56/133 
+  正在更新    : 1:NetworkManager-tui-1.12.0-10.el7_6.x86_64                                                                57/133 
+  正在更新    : 1:NetworkManager-team-1.12.0-10.el7_6.x86_64                                                               58/133 
+  正在更新    : systemd-sysv-219-62.el7_6.5.x86_64                                                                         59/133 
+  正在更新    : openldap-2.4.44-21.el7_6.x86_64                                                                            60/133 
+  正在更新    : 1:openssl-1.0.2k-16.el7_6.1.x86_64                                                                         61/133 
+  正在更新    : libssh2-1.4.3-12.el7_6.2.x86_64                                                                            62/133 
+  正在更新    : 32:bind-libs-lite-9.9.4-73.el7_6.x86_64                                                                    63/133 
+  正在更新    : xfsprogs-4.5.0-19.el7_6.x86_64                                                                             64/133 
+  正在更新    : libgomp-4.8.5-36.el7_6.1.x86_64                                                                            65/133 
+  正在更新    : libstdc++-4.8.5-36.el7_6.1.x86_64                                                                          66/133 
+  正在安装    : kernel-3.10.0-957.10.1.el7.x86_64                                                                          67/133 
+  清理        : tuned-2.10.0-6.el7.noarch                                                                                  68/133 
+  清理        : 1:NetworkManager-tui-1.12.0-6.el7.x86_64                                                                   69/133 
+  清理        : 7:lvm2-2.02.180-8.el7.x86_64                                                                               70/133 
+  清理        : openldap-2.4.44-20.el7.x86_64                                                                              71/133 
+  清理        : 7:lvm2-libs-2.02.180-8.el7.x86_64                                                                          72/133 
+  清理        : 7:device-mapper-event-1.02.149-8.el7.x86_64                                                                73/133 
+  清理        : 32:bind-libs-lite-9.9.4-72.el7.x86_64                                                                      74/133 
+  清理        : nss-tools-3.36.0-7.el7_5.x86_64                                                                            75/133 
+  清理        : 1:openssl-1.0.2k-16.el7.x86_64                                                                             76/133 
+  清理        : xfsprogs-4.5.0-18.el7.x86_64                                                                               77/133 
+  清理        : python-perf-3.10.0-957.el7.x86_64                                                                          78/133 
+  清理        : ipset-6.38-2.el7.x86_64                                                                                    79/133 
+  清理        : 1:NetworkManager-team-1.12.0-6.el7.x86_64                                                                  80/133 
+  清理        : 1:NetworkManager-1.12.0-6.el7.x86_64                                                                       81/133 
+  清理        : 1:NetworkManager-libnm-1.12.0-6.el7.x86_64                                                                 82/133 
+  清理        : nss-sysinit-3.36.0-7.el7_5.x86_64                                                                          83/133 
+  清理        : nss-3.36.0-7.el7_5.x86_64                                                                                  84/133 
+  清理        : nss-pem-1.0.3-5.el7.x86_64                                                                                 85/133 
+  清理        : polkit-0.112-18.el7.x86_64                                                                                 86/133 
+  清理        : kernel-tools-3.10.0-957.el7.x86_64                                                                         87/133 
+  清理        : systemd-sysv-219-62.el7.x86_64                                                                             88/133 
+  清理        : selinux-policy-targeted-3.13.1-229.el7.noarch                                                              89/133 
+  清理        : python-2.7.5-76.el7.x86_64                                                                                 90/133 
+  清理        : python-libs-2.7.5-76.el7.x86_64                                                                            91/133 
+  清理        : 7:device-mapper-event-libs-1.02.149-8.el7.x86_64                                                           92/133 
+  清理        : libstdc++-4.8.5-36.el7.x86_64                                                                              93/133 
+  清理        : libssh2-1.4.3-12.el7.x86_64                                                                                94/133 
+  清理        : selinux-policy-3.13.1-229.el7.noarch                                                                       95/133 
+  清理        : 1:perl-Pod-Escapes-1.04-293.el7.noarch                                                                     96/133 
+  清理        : 1:grub2-2.02-0.76.el7.centos.x86_64                                                                        97/133 
+  清理        : 4:perl-macros-5.16.3-293.el7.x86_64                                                                        98/133 
+  清理        : 4:perl-5.16.3-293.el7.x86_64                                                                               99/133 
+  清理        : 4:perl-libs-5.16.3-293.el7.x86_64                                                                         100/133 
+  清理        : 1:grub2-pc-2.02-0.76.el7.centos.x86_64                                                                    101/133 
+  清理        : 1:grub2-tools-extra-2.02-0.76.el7.centos.x86_64                                                           102/133 
+  清理        : 1:grub2-tools-2.02-0.76.el7.centos.x86_64                                                                 103/133 
+  清理        : 1:grub2-tools-minimal-2.02-0.76.el7.centos.x86_64                                                         104/133 
+  清理        : 7:device-mapper-1.02.149-8.el7.x86_64                                                                     105/133 
+  清理        : 7:device-mapper-libs-1.02.149-8.el7.x86_64                                                                106/133 
+  清理        : krb5-libs-1.15.1-34.el7.x86_64                                                                            107/133 
+  清理        : 1:openssl-libs-1.0.2k-16.el7.x86_64                                                                       108/133 
+  清理        : policycoreutils-2.5-29.el7.x86_64                                                                         109/133 
+  清理        : util-linux-2.23.2-59.el7.x86_64                                                                           110/133 
+  清理        : cronie-1.4.11-19.el7.x86_64                                                                               111/133 
+  清理        : cronie-anacron-1.4.11-19.el7.x86_64                                                                       112/133 
+  清理        : 1:grub2-pc-modules-2.02-0.76.el7.centos.noarch                                                            113/133 
+  清理        : 1:dbus-1.10.24-12.el7.x86_64                                                                              114/133 
+  清理        : systemd-219-62.el7.x86_64                                                                                 115/133 
+  清理        : libmount-2.23.2-59.el7.x86_64                                                                             116/133 
+  清理        : libblkid-2.23.2-59.el7.x86_64                                                                             117/133 
+  清理        : 1:dbus-libs-1.10.24-12.el7.x86_64                                                                         118/133 
+  清理        : systemd-libs-219-62.el7.x86_64                                                                            119/133 
+  清理        : libuuid-2.23.2-59.el7.x86_64                                                                              120/133 
+  清理        : 2:shadow-utils-4.1.5.1-25.el7.x86_64                                                                      121/133 
+  清理        : libsmartcols-2.23.2-59.el7.x86_64                                                                         122/133 
+  清理        : freetype-2.8-12.el7.x86_64                                                                                123/133 
+  清理        : kernel-tools-libs-3.10.0-957.el7.x86_64                                                                   124/133 
+  清理        : nss-util-3.36.0-1.el7_5.x86_64                                                                            125/133 
+  清理        : ipset-libs-6.38-2.el7.x86_64                                                                              126/133 
+  清理        : libgomp-4.8.5-36.el7.x86_64                                                                               127/133 
+  清理        : 1:grub2-common-2.02-0.76.el7.centos.noarch                                                                128/133 
+  清理        : 32:bind-license-9.9.4-72.el7.noarch                                                                       129/133 
+  清理        : glibc-common-2.17-260.el7.x86_64                                                                          130/133 
+  清理        : glibc-2.17-260.el7.x86_64                                                                                 131/133 
+  清理        : tzdata-2018e-3.el7.noarch                                                                                 132/133 
+  清理        : libgcc-4.8.5-36.el7.x86_64                                                                                133/133 
+  验证中      : nss-pem-1.0.3-5.el7_6.1.x86_64                                                                              1/133 
+  验证中      : libblkid-2.23.2-59.el7_6.1.x86_64                                                                           2/133 
+  验证中      : nss-sysinit-3.36.0-7.1.el7_6.x86_64                                                                         3/133 
+  验证中      : 1:grub2-common-2.02-0.76.el7.centos.1.noarch                                                                4/133 
+  验证中      : tuned-2.10.0-6.el7_6.3.noarch                                                                               5/133 
+  验证中      : 7:device-mapper-libs-1.02.149-10.el7_6.3.x86_64                                                             6/133 
+  验证中      : kernel-3.10.0-957.10.1.el7.x86_64                                                                           7/133 
+  验证中      : kernel-tools-3.10.0-957.10.1.el7.x86_64                                                                     8/133 
+  验证中      : 1:NetworkManager-tui-1.12.0-10.el7_6.x86_64                                                                 9/133 
+  验证中      : selinux-policy-3.13.1-229.el7_6.9.noarch                                                                   10/133 
+  验证中      : selinux-policy-targeted-3.13.1-229.el7_6.9.noarch                                                          11/133 
+  验证中      : 1:openssl-libs-1.0.2k-16.el7_6.1.x86_64                                                                    12/133 
+  验证中      : cronie-anacron-1.4.11-20.el7_6.x86_64                                                                      13/133 
+  验证中      : libgomp-4.8.5-36.el7_6.1.x86_64                                                                            14/133 
+  验证中      : 1:NetworkManager-libnm-1.12.0-10.el7_6.x86_64                                                              15/133 
+  验证中      : 1:NetworkManager-team-1.12.0-10.el7_6.x86_64                                                               16/133 
+  验证中      : 1:grub2-pc-2.02-0.76.el7.centos.1.x86_64                                                                   17/133 
+  验证中      : nss-tools-3.36.0-7.1.el7_6.x86_64                                                                          18/133 
+  验证中      : libmount-2.23.2-59.el7_6.1.x86_64                                                                          19/133 
+  验证中      : policycoreutils-2.5-29.el7_6.1.x86_64                                                                      20/133 
+  验证中      : krb5-libs-1.15.1-37.el7_6.x86_64                                                                           21/133 
+  验证中      : 4:perl-libs-5.16.3-294.el7_6.x86_64                                                                        22/133 
+  验证中      : 2:shadow-utils-4.1.5.1-25.el7_6.1.x86_64                                                                   23/133 
+  验证中      : systemd-libs-219-62.el7_6.5.x86_64                                                                         24/133 
+  验证中      : nss-3.36.0-7.1.el7_6.x86_64                                                                                25/133 
+  验证中      : 1:openssl-1.0.2k-16.el7_6.1.x86_64                                                                         26/133 
+  验证中      : 1:grub2-tools-2.02-0.76.el7.centos.1.x86_64                                                                27/133 
+  验证中      : 7:device-mapper-event-libs-1.02.149-10.el7_6.3.x86_64                                                      28/133 
+  验证中      : python-perf-3.10.0-957.10.1.el7.x86_64                                                                     29/133 
+  验证中      : 7:device-mapper-event-1.02.149-10.el7_6.3.x86_64                                                           30/133 
+  验证中      : systemd-sysv-219-62.el7_6.5.x86_64                                                                         31/133 
+  验证中      : cronie-1.4.11-20.el7_6.x86_64                                                                              32/133 
+  验证中      : python-libs-2.7.5-77.el7_6.x86_64                                                                          33/133 
+  验证中      : openldap-2.4.44-21.el7_6.x86_64                                                                            34/133 
+  验证中      : libssh2-1.4.3-12.el7_6.2.x86_64                                                                            35/133 
+  验证中      : 1:grub2-2.02-0.76.el7.centos.1.x86_64                                                                      36/133 
+  验证中      : 1:perl-Pod-Escapes-1.04-294.el7_6.noarch                                                                   37/133 
+  验证中      : libgcc-4.8.5-36.el7_6.1.x86_64                                                                             38/133 
+  验证中      : tzdata-2019a-1.el7.noarch                                                                                  39/133 
+  验证中      : 7:lvm2-2.02.180-10.el7_6.3.x86_64                                                                          40/133 
+  验证中      : 4:perl-5.16.3-294.el7_6.x86_64                                                                             41/133 
+  验证中      : systemd-219-62.el7_6.5.x86_64                                                                              42/133 
+  验证中      : 1:dbus-libs-1.10.24-13.el7_6.x86_64                                                                        43/133 
+  验证中      : 1:dbus-1.10.24-13.el7_6.x86_64                                                                             44/133 
+  验证中      : python-2.7.5-77.el7_6.x86_64                                                                               45/133 
+  验证中      : libsmartcols-2.23.2-59.el7_6.1.x86_64                                                                      46/133 
+  验证中      : libuuid-2.23.2-59.el7_6.1.x86_64                                                                           47/133 
+  验证中      : glibc-common-2.17-260.el7_6.4.x86_64                                                                       48/133 
+  验证中      : 1:grub2-tools-minimal-2.02-0.76.el7.centos.1.x86_64                                                        49/133 
+  验证中      : freetype-2.8-12.el7_6.1.x86_64                                                                             50/133 
+  验证中      : kernel-tools-libs-3.10.0-957.10.1.el7.x86_64                                                               51/133 
+  验证中      : 7:device-mapper-1.02.149-10.el7_6.3.x86_64                                                                 52/133 
+  验证中      : 1:grub2-tools-extra-2.02-0.76.el7.centos.1.x86_64                                                          53/133 
+  验证中      : glibc-2.17-260.el7_6.4.x86_64                                                                              54/133 
+  验证中      : 32:bind-license-9.9.4-73.el7_6.noarch                                                                      55/133 
+  验证中      : ipset-libs-6.38-3.el7_6.x86_64                                                                             56/133 
+  验证中      : util-linux-2.23.2-59.el7_6.1.x86_64                                                                        57/133 
+  验证中      : nss-util-3.36.0-1.1.el7_6.x86_64                                                                           58/133 
+  验证中      : 32:bind-libs-lite-9.9.4-73.el7_6.x86_64                                                                    59/133 
+  验证中      : polkit-0.112-18.el7_6.1.x86_64                                                                             60/133 
+  验证中      : 4:perl-macros-5.16.3-294.el7_6.x86_64                                                                      61/133 
+  验证中      : libstdc++-4.8.5-36.el7_6.1.x86_64                                                                          62/133 
+  验证中      : 1:NetworkManager-1.12.0-10.el7_6.x86_64                                                                    63/133 
+  验证中      : 7:lvm2-libs-2.02.180-10.el7_6.3.x86_64                                                                     64/133 
+  验证中      : xfsprogs-4.5.0-19.el7_6.x86_64                                                                             65/133 
+  验证中      : 1:grub2-pc-modules-2.02-0.76.el7.centos.1.noarch                                                           66/133 
+  验证中      : ipset-6.38-3.el7_6.x86_64                                                                                  67/133 
+  验证中      : python-2.7.5-76.el7.x86_64                                                                                 68/133 
+  验证中      : 1:NetworkManager-1.12.0-6.el7.x86_64                                                                       69/133 
+  验证中      : 7:device-mapper-event-1.02.149-8.el7.x86_64                                                                70/133 
+  验证中      : 1:grub2-pc-2.02-0.76.el7.centos.x86_64                                                                     71/133 
+  验证中      : 1:grub2-pc-modules-2.02-0.76.el7.centos.noarch                                                             72/133 
+  验证中      : 1:NetworkManager-team-1.12.0-6.el7.x86_64                                                                  73/133 
+  验证中      : libgcc-4.8.5-36.el7.x86_64                                                                                 74/133 
+  验证中      : libstdc++-4.8.5-36.el7.x86_64                                                                              75/133 
+  验证中      : freetype-2.8-12.el7.x86_64                                                                                 76/133 
+  验证中      : libsmartcols-2.23.2-59.el7.x86_64                                                                          77/133 
+  验证中      : policycoreutils-2.5-29.el7.x86_64                                                                          78/133 
+  验证中      : 2:shadow-utils-4.1.5.1-25.el7.x86_64                                                                       79/133 
+  验证中      : libgomp-4.8.5-36.el7.x86_64                                                                                80/133 
+  验证中      : nss-sysinit-3.36.0-7.el7_5.x86_64                                                                          81/133 
+  验证中      : krb5-libs-1.15.1-34.el7.x86_64                                                                             82/133 
+  验证中      : cronie-anacron-1.4.11-19.el7.x86_64                                                                        83/133 
+  验证中      : 7:device-mapper-libs-1.02.149-8.el7.x86_64                                                                 84/133 
+  验证中      : 4:perl-libs-5.16.3-293.el7.x86_64                                                                          85/133 
+  验证中      : 7:device-mapper-event-libs-1.02.149-8.el7.x86_64                                                           86/133 
+  验证中      : ipset-6.38-2.el7.x86_64                                                                                    87/133 
+  验证中      : kernel-tools-libs-3.10.0-957.el7.x86_64                                                                    88/133 
+  验证中      : nss-util-3.36.0-1.el7_5.x86_64                                                                             89/133 
+  验证中      : 7:lvm2-libs-2.02.180-8.el7.x86_64                                                                          90/133 
+  验证中      : libuuid-2.23.2-59.el7.x86_64                                                                               91/133 
+  验证中      : systemd-219-62.el7.x86_64                                                                                  92/133 
+  验证中      : nss-tools-3.36.0-7.el7_5.x86_64                                                                            93/133 
+  验证中      : 1:grub2-tools-2.02-0.76.el7.centos.x86_64                                                                  94/133 
+  验证中      : util-linux-2.23.2-59.el7.x86_64                                                                            95/133 
+  验证中      : 1:NetworkManager-tui-1.12.0-6.el7.x86_64                                                                   96/133 
+  验证中      : 1:dbus-1.10.24-12.el7.x86_64                                                                               97/133 
+  验证中      : 1:grub2-2.02-0.76.el7.centos.x86_64                                                                        98/133 
+  验证中      : 1:grub2-common-2.02-0.76.el7.centos.noarch                                                                 99/133 
+  验证中      : libblkid-2.23.2-59.el7.x86_64                                                                             100/133 
+  验证中      : 1:grub2-tools-extra-2.02-0.76.el7.centos.x86_64                                                           101/133 
+  验证中      : 1:grub2-tools-minimal-2.02-0.76.el7.centos.x86_64                                                         102/133 
+  验证中      : 4:perl-macros-5.16.3-293.el7.x86_64                                                                       103/133 
+  验证中      : openldap-2.4.44-20.el7.x86_64                                                                             104/133 
+  验证中      : glibc-2.17-260.el7.x86_64                                                                                 105/133 
+  验证中      : 7:device-mapper-1.02.149-8.el7.x86_64                                                                     106/133 
+  验证中      : selinux-policy-3.13.1-229.el7.noarch                                                                      107/133 
+  验证中      : 32:bind-libs-lite-9.9.4-72.el7.x86_64                                                                     108/133 
+  验证中      : kernel-tools-3.10.0-957.el7.x86_64                                                                        109/133 
+  验证中      : 1:openssl-1.0.2k-16.el7.x86_64                                                                            110/133 
+  验证中      : 1:dbus-libs-1.10.24-12.el7.x86_64                                                                         111/133 
+  验证中      : libmount-2.23.2-59.el7.x86_64                                                                             112/133 
+  验证中      : python-libs-2.7.5-76.el7.x86_64                                                                           113/133 
+  验证中      : 32:bind-license-9.9.4-72.el7.noarch                                                                       114/133 
+  验证中      : tuned-2.10.0-6.el7.noarch                                                                                 115/133 
+  验证中      : systemd-sysv-219-62.el7.x86_64                                                                            116/133 
+  验证中      : python-perf-3.10.0-957.el7.x86_64                                                                         117/133 
+  验证中      : nss-3.36.0-7.el7_5.x86_64                                                                                 118/133 
+  验证中      : 1:openssl-libs-1.0.2k-16.el7.x86_64                                                                       119/133 
+  验证中      : systemd-libs-219-62.el7.x86_64                                                                            120/133 
+  验证中      : xfsprogs-4.5.0-18.el7.x86_64                                                                              121/133 
+  验证中      : nss-pem-1.0.3-5.el7.x86_64                                                                                122/133 
+  验证中      : libssh2-1.4.3-12.el7.x86_64                                                                               123/133 
+  验证中      : selinux-policy-targeted-3.13.1-229.el7.noarch                                                             124/133 
+  验证中      : 1:perl-Pod-Escapes-1.04-293.el7.noarch                                                                    125/133 
+  验证中      : 7:lvm2-2.02.180-8.el7.x86_64                                                                              126/133 
+  验证中      : glibc-common-2.17-260.el7.x86_64                                                                          127/133 
+  验证中      : tzdata-2018e-3.el7.noarch                                                                                 128/133 
+  验证中      : 1:NetworkManager-libnm-1.12.0-6.el7.x86_64                                                                129/133 
+  验证中      : polkit-0.112-18.el7.x86_64                                                                                130/133 
+  验证中      : cronie-1.4.11-19.el7.x86_64                                                                               131/133 
+  验证中      : 4:perl-5.16.3-293.el7.x86_64                                                                              132/133 
+  验证中      : ipset-libs-6.38-2.el7.x86_64                                                                              133/133 
+
+已安装:
+  kernel.x86_64 0:3.10.0-957.10.1.el7                                                                                             
+
+更新完毕:
+  NetworkManager.x86_64 1:1.12.0-10.el7_6                          NetworkManager-libnm.x86_64 1:1.12.0-10.el7_6                 
+  NetworkManager-team.x86_64 1:1.12.0-10.el7_6                     NetworkManager-tui.x86_64 1:1.12.0-10.el7_6                   
+  bind-libs-lite.x86_64 32:9.9.4-73.el7_6                          bind-license.noarch 32:9.9.4-73.el7_6                         
+  cronie.x86_64 0:1.4.11-20.el7_6                                  cronie-anacron.x86_64 0:1.4.11-20.el7_6                       
+  dbus.x86_64 1:1.10.24-13.el7_6                                   dbus-libs.x86_64 1:1.10.24-13.el7_6                           
+  device-mapper.x86_64 7:1.02.149-10.el7_6.3                       device-mapper-event.x86_64 7:1.02.149-10.el7_6.3              
+  device-mapper-event-libs.x86_64 7:1.02.149-10.el7_6.3            device-mapper-libs.x86_64 7:1.02.149-10.el7_6.3               
+  freetype.x86_64 0:2.8-12.el7_6.1                                 glibc.x86_64 0:2.17-260.el7_6.4                               
+  glibc-common.x86_64 0:2.17-260.el7_6.4                           grub2.x86_64 1:2.02-0.76.el7.centos.1                         
+  grub2-common.noarch 1:2.02-0.76.el7.centos.1                     grub2-pc.x86_64 1:2.02-0.76.el7.centos.1                      
+  grub2-pc-modules.noarch 1:2.02-0.76.el7.centos.1                 grub2-tools.x86_64 1:2.02-0.76.el7.centos.1                   
+  grub2-tools-extra.x86_64 1:2.02-0.76.el7.centos.1                grub2-tools-minimal.x86_64 1:2.02-0.76.el7.centos.1           
+  ipset.x86_64 0:6.38-3.el7_6                                      ipset-libs.x86_64 0:6.38-3.el7_6                              
+  kernel-tools.x86_64 0:3.10.0-957.10.1.el7                        kernel-tools-libs.x86_64 0:3.10.0-957.10.1.el7                
+  krb5-libs.x86_64 0:1.15.1-37.el7_6                               libblkid.x86_64 0:2.23.2-59.el7_6.1                           
+  libgcc.x86_64 0:4.8.5-36.el7_6.1                                 libgomp.x86_64 0:4.8.5-36.el7_6.1                             
+  libmount.x86_64 0:2.23.2-59.el7_6.1                              libsmartcols.x86_64 0:2.23.2-59.el7_6.1                       
+  libssh2.x86_64 0:1.4.3-12.el7_6.2                                libstdc++.x86_64 0:4.8.5-36.el7_6.1                           
+  libuuid.x86_64 0:2.23.2-59.el7_6.1                               lvm2.x86_64 7:2.02.180-10.el7_6.3                             
+  lvm2-libs.x86_64 7:2.02.180-10.el7_6.3                           nss.x86_64 0:3.36.0-7.1.el7_6                                 
+  nss-pem.x86_64 0:1.0.3-5.el7_6.1                                 nss-sysinit.x86_64 0:3.36.0-7.1.el7_6                         
+  nss-tools.x86_64 0:3.36.0-7.1.el7_6                              nss-util.x86_64 0:3.36.0-1.1.el7_6                            
+  openldap.x86_64 0:2.4.44-21.el7_6                                openssl.x86_64 1:1.0.2k-16.el7_6.1                            
+  openssl-libs.x86_64 1:1.0.2k-16.el7_6.1                          perl.x86_64 4:5.16.3-294.el7_6                                
+  perl-Pod-Escapes.noarch 1:1.04-294.el7_6                         perl-libs.x86_64 4:5.16.3-294.el7_6                           
+  perl-macros.x86_64 4:5.16.3-294.el7_6                            policycoreutils.x86_64 0:2.5-29.el7_6.1                       
+  polkit.x86_64 0:0.112-18.el7_6.1                                 python.x86_64 0:2.7.5-77.el7_6                                
+  python-libs.x86_64 0:2.7.5-77.el7_6                              python-perf.x86_64 0:3.10.0-957.10.1.el7                      
+  selinux-policy.noarch 0:3.13.1-229.el7_6.9                       selinux-policy-targeted.noarch 0:3.13.1-229.el7_6.9           
+  shadow-utils.x86_64 2:4.1.5.1-25.el7_6.1                         systemd.x86_64 0:219-62.el7_6.5                               
+  systemd-libs.x86_64 0:219-62.el7_6.5                             systemd-sysv.x86_64 0:219-62.el7_6.5                          
+  tuned.noarch 0:2.10.0-6.el7_6.3                                  tzdata.noarch 0:2019a-1.el7                                   
+  util-linux.x86_64 0:2.23.2-59.el7_6.1                            xfsprogs.x86_64 0:4.5.0-19.el7_6                              
+
+完毕！
+[root@cdh1 yum.repos.d]# yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+已加载插件：fastestmirror
+mysql80-community-release-el7-1.noarch.rpm                                                                    |  25 kB  00:00:00     
+正在检查 /var/tmp/yum-root-ysSZHB/mysql80-community-release-el7-1.noarch.rpm: mysql80-community-release-el7-1.noarch
+/var/tmp/yum-root-ysSZHB/mysql80-community-release-el7-1.noarch.rpm 将被安装
+正在解决依赖关系
+--> 正在检查事务
+---> 软件包 mysql80-community-release.noarch.0.el7-1 将被 安装
+--> 解决依赖关系完成
+
+依赖关系解决
+
+=====================================================================================================================================
+ Package                              架构              版本                源                                                  大小
+=====================================================================================================================================
+正在安装:
+ mysql80-community-release            noarch            el7-1               /mysql80-community-release-el7-1.noarch             31 k
+
+事务概要
+=====================================================================================================================================
+安装  1 软件包
+
+总计：31 k
+安装大小：31 k
+Is this ok [y/d/N]: y
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  正在安装    : mysql80-community-release-el7-1.noarch                                                                           1/1 
+  验证中      : mysql80-community-release-el7-1.noarch                                                                           1/1 
+
+已安装:
+  mysql80-community-release.noarch 0:el7-1                                                                                           
+
+完毕！
+[root@cdh1 yum.repos.d]# yum --disablerepo=mysql80-community --enablerepo=mysql57-community install mysql-community-server
+已加载插件：fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+mysql-connectors-community                                                                                    | 2.5 kB  00:00:00     
+mysql-tools-community                                                                                         | 2.5 kB  00:00:00     
+mysql57-community                                                                                             | 2.5 kB  00:00:00     
+(1/3): mysql-connectors-community/x86_64/primary_db                                                           |  37 kB  00:00:00     
+(2/3): mysql-tools-community/x86_64/primary_db                                                                |  54 kB  00:00:00     
+(3/3): mysql57-community/x86_64/primary_db                                                                    | 170 kB  00:00:01     
+正在解决依赖关系
+--> 正在检查事务
+---> 软件包 mysql-community-server.x86_64.0.5.7.25-1.el7 将被 安装
+--> 正在处理依赖关系 mysql-community-common(x86-64) = 5.7.25-1.el7，它被软件包 mysql-community-server-5.7.25-1.el7.x86_64 需要
+--> 正在处理依赖关系 mysql-community-client(x86-64) >= 5.7.9，它被软件包 mysql-community-server-5.7.25-1.el7.x86_64 需要
+--> 正在检查事务
+---> 软件包 mysql-community-client.x86_64.0.5.7.25-1.el7 将被 安装
+--> 正在处理依赖关系 mysql-community-libs(x86-64) >= 5.7.9，它被软件包 mysql-community-client-5.7.25-1.el7.x86_64 需要
+---> 软件包 mysql-community-common.x86_64.0.5.7.25-1.el7 将被 安装
+--> 正在检查事务
+---> 软件包 mariadb-libs.x86_64.1.5.5.60-1.el7_5 将被 取代
+--> 正在处理依赖关系 libmysqlclient.so.18()(64bit)，它被软件包 2:postfix-2.10.1-7.el7.x86_64 需要
+--> 正在处理依赖关系 libmysqlclient.so.18(libmysqlclient_18)(64bit)，它被软件包 2:postfix-2.10.1-7.el7.x86_64 需要
+---> 软件包 mysql-community-libs.x86_64.0.5.7.25-1.el7 将被 舍弃
+--> 正在检查事务
+---> 软件包 mysql-community-libs-compat.x86_64.0.5.7.25-1.el7 将被 舍弃
+--> 解决依赖关系完成
+
+依赖关系解决
+
+=====================================================================================================================================
+ Package                                    架构                  版本                        源                                大小
+=====================================================================================================================================
+正在安装:
+ mysql-community-libs                       x86_64                5.7.25-1.el7                mysql57-community                2.2 M
+      替换  mariadb-libs.x86_64 1:5.5.60-1.el7_5
+ mysql-community-libs-compat                x86_64                5.7.25-1.el7                mysql57-community                2.0 M
+      替换  mariadb-libs.x86_64 1:5.5.60-1.el7_5
+ mysql-community-server                     x86_64                5.7.25-1.el7                mysql57-community                165 M
+为依赖而安装:
+ mysql-community-client                     x86_64                5.7.25-1.el7                mysql57-community                 24 M
+ mysql-community-common                     x86_64                5.7.25-1.el7                mysql57-community                274 k
+
+事务概要
+=====================================================================================================================================
+安装  3 软件包 (+2 依赖软件包)
+
+总下载量：194 M
+Is this ok [y/d/N]: y
+Downloading packages:
+警告：/var/cache/yum/x86_64/7/mysql57-community/packages/mysql-community-common-5.7.25-1.el7.x86_64.rpm: 头V3 DSA/SHA1 Signature, 密 钥 ID 5072e1f5: NOKEY
+mysql-community-common-5.7.25-1.el7.x86_64.rpm 的公钥尚未安装
+(1/5): mysql-community-common-5.7.25-1.el7.x86_64.rpm                                                         | 274 kB  00:00:01     
+(2/5): mysql-community-libs-5.7.25-1.el7.x86_64.rpm                                                           | 2.2 MB  00:00:01     
+(3/5): mysql-community-libs-compat-5.7.25-1.el7.x86_64.rpm                                                    | 2.0 MB  00:00:02     
+(4/5): mysql-community-client-5.7.25-1.el7.x86_64.rpm                                                         |  24 MB  00:00:34     
+(5/5): mysql-community-server-5.7.25-1.el7.x86_64.rpm                                                            | 165 MB  00:04:39     
+----------------------------------------------------------------------------------------------------------------------------------------
+总计                                                                                                    697 kB/s | 194 MB  00:04:44     
+从 file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql 检索密钥
+导入 GPG key 0x5072E1F5:
+ 用户ID     : "MySQL Release Engineering <mysql-build@oss.oracle.com>"
+ 指纹       : a4a9 4068 76fc bd3c 4567 70c8 8c71 8d3b 5072 e1f5
+ 软件包     : mysql80-community-release-el7-1.noarch (installed)
+ 来自       : /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+是否继续？[y/N]：y
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  正在安装    : mysql-community-common-5.7.25-1.el7.x86_64                                                                          1/6 
+  正在安装    : mysql-community-libs-5.7.25-1.el7.x86_64                                                                            2/6 
+  正在安装    : mysql-community-client-5.7.25-1.el7.x86_64                                                                          3/6 
+  正在安装    : mysql-community-server-5.7.25-1.el7.x86_64                                                                          4/6 
+  正在安装    : mysql-community-libs-compat-5.7.25-1.el7.x86_64                                                                     5/6 
+  正在删除    : 1:mariadb-libs-5.5.60-1.el7_5.x86_64                                                                                6/6 
+  验证中      : mysql-community-libs-5.7.25-1.el7.x86_64                                                                            1/6 
+  验证中      : mysql-community-common-5.7.25-1.el7.x86_64                                                                          2/6 
+  验证中      : mysql-community-server-5.7.25-1.el7.x86_64                                                                          3/6 
+  验证中      : mysql-community-client-5.7.25-1.el7.x86_64                                                                          4/6 
+  验证中      : mysql-community-libs-compat-5.7.25-1.el7.x86_64                                                                     5/6 
+  验证中      : 1:mariadb-libs-5.5.60-1.el7_5.x86_64                                                                                6/6 
+
+已安装:
+  mysql-community-libs.x86_64 0:5.7.25-1.el7                       mysql-community-libs-compat.x86_64 0:5.7.25-1.el7                    
+  mysql-community-server.x86_64 0:5.7.25-1.el7                    
+
+作为依赖被安装:
+  mysql-community-client.x86_64 0:5.7.25-1.el7                       mysql-community-common.x86_64 0:5.7.25-1.el7                      
+
+替代:
+  mariadb-libs.x86_64 1:5.5.60-1.el7_5                                                                                                  
+
+完毕！
+[root@cdh1 yum.repos.d]# systemctl start mysqld.service
+[root@cdh1 yum.repos.d]# 
