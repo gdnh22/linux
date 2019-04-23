@@ -1,0 +1,43 @@
+---> Package mysql-community-client.x86_64 0:5.7.25-1.el7 will be installed
+--> Processing Dependency: mysql-community-libs(x86-64) >= 5.7.9 for package: mysql-community-client-5.7.25-1.el7.x86_64
+---> Package mysql-community-common.x86_64 0:5.7.25-1.el7 will be installed
+--> Running transaction check
+---> Package mariadb-libs.x86_64 1:5.5.60-1.el7_5 will be obsoleted
+--> Processing Dependency: libmysqlclient.so.18()(64bit) for package: 2:postfix-2.10.1-7.el7.x86_64
+--> Processing Dependency: libmysqlclient.so.18(libmysqlclient_18)(64bit) for package: 2:postfix-2.10.1-7.el7.x86_64
+---> Package mysql-community-libs.x86_64 0:5.7.25-1.el7 will be obsoleting
+--> Running transaction check
+---> Package mysql-community-libs-compat.x86_64 0:5.7.25-1.el7 will be obsoleting
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=======================================================================================================================================================
+ Package                                        Arch                      Version                           Repository                            Size
+=======================================================================================================================================================
+Installing:
+ mysql-community-libs                           x86_64                    5.7.25-1.el7                      mysql57-community                    2.2 M
+     replacing  mariadb-libs.x86_64 1:5.5.60-1.el7_5
+ mysql-community-libs-compat                    x86_64                    5.7.25-1.el7                      mysql57-community                    2.0 M
+     replacing  mariadb-libs.x86_64 1:5.5.60-1.el7_5
+ mysql-community-server                         x86_64                    5.7.25-1.el7                      mysql57-community                    165 M
+Installing for dependencies:
+ libaio                                         x86_64                    0.3.109-13.el7                    base                                  24 k
+ mysql-community-client                         x86_64                    5.7.25-1.el7                      mysql57-community                     24 M
+ mysql-community-common                         x86_64                    5.7.25-1.el7                      mysql57-community                    274 k
+
+Transaction Summary
+=======================================================================================================================================================
+Install  3 Packages (+3 Dependent packages)
+
+Total download size: 194 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/6): libaio-0.3.109-13.el7.x86_64.rpm                                                                                         |  24 kB  00:00:00     
+warning: /var/cache/yum/x86_64/7/mysql57-community/packages/mysql-community-common-5.7.25-1.el7.x86_64.rpm: Header V3 DSA/SHA1 Signature, key ID 5072e1f5: NOKEY
+Public key for mysql-community-common-5.7.25-1.el7.x86_64.rpm is not installed
+(2/6): mysql-community-common-5.7.25-1.el7.x86_64.rpm                                                                           | 274 kB  00:00:00     
+(3/6): mysql-community-libs-5.7.25-1.el7.x86_64.rpm                                                                             | 2.2 MB  00:00:00     
+(4/6): mysql-community-libs-compat-5.7.25-1.el7.x86_64.rpm                                                                      | 2.0 MB  00:00:00     
+(5/6): mysql-community-client-5.7.25-1.el7.x86_64.rpm                                                                           |  24 MB  00:00:03     
+(6/6): mysql-community-server-5.7.25-1.el7.x86_64.rpm        60% [==============================-                    ] 3.0 MB/s | 116 MB  00:00:26 ETA 
