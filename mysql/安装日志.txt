@@ -1,0 +1,36 @@
+mysql-5.7.25-el7-x86_64/share/uninstall_rewriter.sql
+mysql-5.7.25-el7-x86_64/support-files/magic
+mysql-5.7.25-el7-x86_64/support-files/mysql.server
+mysql-5.7.25-el7-x86_64/docs/INFO_BIN
+mysql-5.7.25-el7-x86_64/docs/INFO_SRC
+[root@cdh1 ~]# rm -f /usr/local/mysql-5.7.25-el7-x86_64.tar.gz 
+[root@cdh1 ~]# cd /usr/local/mysql/
+[root@cdh1 mysql]# ls
+mysql-5.7.25-el7-x86_64
+[root@cdh1 mysql]# mv mysql-5.7.25-el7-x86_64/* /usr/local/mysql
+[root@cdh1 mysql]# ls
+bin  COPYING  docs  include  lib  man  mysql-5.7.25-el7-x86_64  README  share  support-files
+[root@cdh1 mysql]# sudo groupadd mysql
+[root@cdh1 mysql]# sudo useradd -r -g mysql mysql
+[root@cdh1 mysql]# sudo vi /etc/my.cnf
+[root@cdh1 mysql]# sudo mkdir -p /usr/local/mysql/data
+[root@cdh1 mysql]# sudo chown -R mysql:msql /usr/local/mysql/data
+chown: 无效的组: "mysql:msql"
+[root@cdh1 mysql]# sudo chown -R mysql:mysql /usr/local/mysql/data
+[root@cdh1 mysql]# sudo mkdir -p /val/lib/mysql
+[root@cdh1 mysql]# sudo chown -R mysql:mysql /var/lib/mysql
+chown: 无法访问"/var/lib/mysql": 没有那个文件或目录
+[root@cdh1 mysql]# sudo mkdir -p /var/lib/mysql
+[root@cdh1 mysql]# sudo chown -R mysql:mysql /var/lib/mysql
+[root@cdh1 mysql]# cd /usr/local/mysql
+[root@cdh1 mysql]# sudo bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
+2019-04-13T13:00:45.062362Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation for more details).
+2019-04-13T13:00:46.652771Z 0 [Warning] InnoDB: New log files created, LSN=45790
+2019-04-13T13:00:47.050009Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.
+2019-04-13T13:00:47.205246Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 27bfba7d-5dec-11e9-b6fa-000c29e29f1e.
+2019-04-13T13:00:47.229100Z 0 [Warning] Gtid table is not ready to be used. Table 'mysql.gtid_executed' cannot be opened.
+2019-04-13T13:00:47.230187Z 1 [Note] A temporary password is generated for root@localhost: 5rAq%JNNg.zM
+[root@cdh1 mysql]# sudo service mysqld start
+Redirecting to /bin/systemctl start mysqld.service
+Failed to start mysqld.service: Unit not found.
+[root@cdh1 mysql]# 
