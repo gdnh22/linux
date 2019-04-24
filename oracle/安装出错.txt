@@ -1,0 +1,41 @@
+su：无效选项 -- o
+
+用法：
+ su [选项] [-] [USER [参数]...]
+
+将有效用户 id 和组 id 更改为 USER 的 id。
+单个 - 视为 -l。如果未指定 USER，将假定为 root。
+
+选项：
+ -m, -p, --preserve-environment  不重置环境变量
+ -g, --group <组>             指定主组
+ -G, --supp-group <组>        指定一个辅助组
+
+ -, -l, --login                  使 shell 成为登录 shell
+ -c, --command <命令>            使用 -c 向 shell 传递一条命令
+ --session-command <命令>        使用 -c 向 shell 传递一条命令
+                                 而不创建新会话
+ -f, --fast                      向shell 传递 -f 选项(csh 或 tcsh)
+ -s, --shell <shell>             若 /etc/shells 允许，则运行 shell
+
+ -h, --help     显示此帮助并退出
+ -V, --version  输出版本信息并退出
+
+更多信息请参阅 su(1)。
+[root@cdh1 ~]# su - oracle
+[oracle@cdh1 ~]$ cd /usr/local/oracleinstall
+[oracle@cdh1 oracleinstall]$ ls
+database
+[oracle@cdh1 oracleinstall]$ cd /usr/local/oracleinstall/database
+[oracle@cdh1 database]$ ls
+doc  install  response  rpm  runInstaller  sshsetup  stage  welcome.html
+[oracle@cdh1 database]$ ./runInstaller -silent -responseFile /data/etc/db_install.rsp -ignorePrereq
+正在启动 Oracle Universal Installer...
+
+检查临时空间: 必须大于 120 MB。   实际为 11420 MB    通过
+检查交换空间: 必须大于 150 MB。   实际为 2047 MB    通过
+准备从以下地址启动 Oracle Universal Installer /tmp/OraInstall2019-04-24_07-07-31PM. 请稍候...[oracle@cdh1 database]$ [FATAL] [INS-10101] 找不到给定的响应文件 /data/etc/db_install.rsp。
+   原因: 指定的响应文件不可访问或不存在。
+   操作: 指定正确的响应文件位置。(注: 不支持相对路径)
+此会话的日志当前已保存为: /tmp/OraInstall2019-04-24_07-07-31PM/installActions2019-04-24_07-07-31PM.log。如果要保留此日志, Oracle 建议将它从临时位置移动到更持久的位置。
+[oracle@cdh1 database]$ 
