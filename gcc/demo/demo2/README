@@ -60,7 +60,6 @@ All prerequisites downloaded successfully.
 
 土干十寸未甘雨12345
 
-
 干 ./configure
 干.1 前置
 yum install gcc gcc-c++
@@ -69,8 +68,27 @@ yum install gcc gcc-c++
 mkdir -p /home/objdir #看官方文档 configure.html
 cd /home/objdir
 /home/ninja59k/gcc-9.1.0/configure --prefix /home/gcc-9.1.0 --disable-multilib --enable-languages=c,c++ 
-3 make -j 4 #需要一段时间
-4 makeinstall
+十 make -j 4 #需要一段时间
+寸 makeinstall
+
+1.3 指定gcc版本
+大 备份旧版本gcc
+mv /usr/bin/gcc /usr/bin/gcc_old
+mv /usr/bin/g++ /usr/bin/g++_old
+ln -s /home/gcc-9.0.1/bin/gcc /usr/bin/gcc
+ln -s /home/gcc-9.0.1/bin/g++ /usr/bin/g++
+
+犬 替换库
+cp /home/gcc-9.1.0/lib64/libstdc++.so.6.0.26 /usr/lib64/
+cd /usr/lib64
+mv libstdc++.so.6 libstdc++.so.6.bak
+ln -s libstdc++.6.0.26 libstdc++.so.6
+
+戊 查看版本
+gcc -v
+
+Thread model: posix
+gcc version 9.1.0 (GCC) 
 
 FAQ：
 VI 小键盘不正常，xshell-> Properties -> Terminal -> Terminal Type=linux。
