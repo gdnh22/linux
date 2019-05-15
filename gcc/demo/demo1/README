@@ -1,0 +1,98 @@
+demo1
+配置本地源
+
+1 VMWARE设置【仅主机模式】
+1  关闭防火墙
+systemctl status firewalld
+systemctl disable firewalld
+
+2 改IP，用XMANAGER连接
+ip addr 查网卡ens32
+vi /etc/sysconfig/network-scripts/ifcfg-ens32
+
+设置网卡
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR=192.168.80.101
+NETMASK=255.255.255.0
+GATEWAY=192.168.80.1
+
+DNS1=114.114.114.114
+DNS2=8.8.8.8
+
+完。
+
+3 改hosts
+192.168.80.101 gcc9make
+
+4 重启
+
+5 xmanager5登录
+ip addr 查IP
+如果有外网 ping www.baidu.com
+如果没外网 ping 192.168.80.100
+ctrl+c退出
+
+使用gcc9make登录，失败，不可行。
+使用 192.168.80.101 登录。
+
+
+参考文献：hostname与etc/hosts的关系
+https://blog.csdn.net/z1014347942/article/details/77886147
+
+
+二、 加载DVD
+1 VMWARE，DVD设置【已连接】
+检查yum
+[root@gcc9make ~]# yum list #下面是失败信息。
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os&infra=stock error was
+14: curl#6 - "Could not resolve host: mirrorlist.centos.org; Unknown error"
+Cannot find a valid baseurl for repo: base/7/x86_64
+完。
+
+2 修改repo
+mkdir -p /media/CentOS7
+mount -t auto /dev/cdrom /media/CentOS7 #加载本地
+mount -o remount,rm /media/CentOS7 #去掉只读
+mount -t auto /dev/cdrom /media/CentOS7 #再执行一次
+# 改url
+cd /etc/yum.repos.d
+mv CentOS-Base.repo CentOS-Base.repo.bak # 备份
+vi CentOS-Base.repo
+
+[base]
+name=CentOS-$releasever - Base
+# mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
+baseurl=file:///media/CentOS7/ #注意
+gpgcheck=0
+gpgkey=file:///media/CentOS7//RPM-GPG-KEY-CentOS-7 #注意
+#改完
+
+yum clean all
+yum makecache
+yum list
+看到列表，说明成功。
+
+3 重启测试
+reboot
+ls /media/CentOS7
+空的说明不会自动加载
+
+
+4 开机自动加载
+vi /etc/fstab
+/dev/sr0 /media/Centos7 iso9660 defaults 0 0 #可选，自动加载
+
+yum list
+gcc -v 没有东西
+
+
+
+FAQ：
+VI 小键盘不正常，xshell-> Properties -> Terminal -> Terminal Type=linux。
+
+
+
+
