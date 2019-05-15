@@ -1,0 +1,7 @@
+
+[base]
+name=CentOS-$releasever - Base
+# mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
+baseurl=file:///media/CentOS7/
+gpgcheck=0
+gpgkey=file:///media/CentOS7//RPM-GPG-KEY-CentOS-7
