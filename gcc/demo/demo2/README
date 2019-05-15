@@ -1,0 +1,88 @@
+demo2
+编译gcc9
+参考https://www.cnblogs.com/Czbb/p/10830062.html
+
+一、先操作demo1
+二、下载gcc9
+百度搜索gcc，打开【https://gcc.gnu.org/】
+Download -> Mirrors > US San Francisco
+releases/gcc-9.10/gcc-9.1.0.tar.gz
+保存 E:\develop\linux\gcc\v9.1.0
+上传 /home/ninja59k
+三、解压
+[root@gcc9make ninja59k]# cd /home/ninja59k/
+[root@gcc9make ninja59k]# tar -zxvf gcc-9.1.0.tar.gz 
+
+三、make
+可以在本地解压，查看INSTALL目录下的index.html
+prerequisites.html 预编译准备
+
+1 前置
+
+1  contrib/download_prerequisites
+1.1 前置
+yum install bzip2
+yum install wget
+vi contrib/download_prerequisites #修改配置文件
+#base_url='ftp://gcc.gnu.org/pub/gcc/infrastructure/'
+base_url='/home/ninja59k/gcc-9.1.0/'  #本地目录
+
+graphite=1 
+verify=0  #注意
+
+1.1.2 建立ln
+
+下载四个文件
+gmp-6.1.0.tar.bz2
+mpfr-3.1.4.tar.bz2
+mpc-1.0.3.tar.gz
+isl-0.18.tar.bz2
+
+上传【/home/ninja59k】
+tar -jxvf gmp-6.1.0.tar.bz2
+tar -jxvf mpfr-3.1.4.tar.bz2
+tar -zxvf mpc-1.0.3.tar.gz
+tar -jxvf isl-0.18.tar.bz2
+
+mv gmp-6.1.0 mpfr-3.1.4 mpc-1.0.3 isl-0.18 /home/ninja59k/gcc-9.1.0
+
+[root@gcc9make ninja59k]# cd /home/ninja59k/gcc-9.1.0/
+ln -sf gmp-6.1.0 gmp
+ln -sf mpc-1.0.3 mpc
+ln -sf mpfr-3.1.4 mpfr
+ln -sf isl-0.18 isl
+
+1.2 make
+土 contrib/download_prerequisites
+[root@gcc9make ninja59k]# cd gcc-9.1.0/
+[root@gcc9make gcc-9.1.0]# contrib/download_prerequisites 
+All prerequisites downloaded successfully.
+
+土干十寸未甘雨12345
+
+
+干 ./configure
+干.1 前置
+yum install gcc gcc-c++
+查看make版本
+
+mkdir -p /home/objdir #看官方文档 configure.html
+cd /home/objdir
+/home/ninja59k/gcc-9.1.0/configure --prefix /home/gcc-9.1.0 --disable-multilib --enable-languages=c,c++ 
+3 make -j 4 #需要一段时间
+4 makeinstall
+
+FAQ：
+VI 小键盘不正常，xshell-> Properties -> Terminal -> Terminal Type=linux。
+
+gcc g++依赖包
+
+Installed:
+  gcc.x86_64 0:4.8.5-36.el7                                                          gcc-c++.x86_64 0:4.8.5-36.el7                                                         
+
+Dependency Installed:
+  cpp.x86_64 0:4.8.5-36.el7          glibc-devel.x86_64 0:2.17-260.el7            glibc-headers.x86_64 0:2.17-260.el7        kernel-headers.x86_64 0:3.10.0-957.el7       
+  libmpc.x86_64 0:1.0.1-3.el7        libstdc++-devel.x86_64 0:4.8.5-36.el7        mpfr.x86_64 0:3.1.1-4.el7                 
+
+
+
