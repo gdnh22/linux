@@ -1,0 +1,55 @@
+demo4 第一个C++17的程序
+
+用VS2017创建一个LINUX程序。
+
+
+
+木、压缩tar.gz
+参考https://www.howtogeek.com/248780/how-to-compress-and-extract-files-using-the-tar-command-on-linux/
+
+tar -czvf /home/gcc-9.1.0_centos7_pack.tar.gz /home/gcc-9.1.0
+
+丁、拷贝到本地
+xmanager5
+
+西、解压
+找一台没有gcc-9.1.0的CentOS7系统
+上传到/home
+
+tar -zxvf /home/gcc-9.1.0_centos7_pack.tar.gz -C /home
+mv /home/gcc-9.1.0 /home
+
+甫、 指定gcc版本
+备份旧版本gcc
+rm -rf /usr/bin/gcc
+rm -rf /usr/bin/g++
+[root@itcast lib64]# ln -s /home/gcc-9.1.0/bin/gcc /usr/bin/gcc
+[root@itcast lib64]# ln -s /home/gcc-9.1.0/bin/g++ /usr/bin/g++
+[root@itcast lib64]# gcc -v
+替换库
+cp /home/gcc-9.1.0/lib64/libstdc++.so.6.0.26 /usr/lib64/
+cd /usr/lib64
+mv libstdc++.so.6 libstdc++.so.6.bak
+ln -s libstdc++.6.0.26 libstdc++.so.6
+reboot
+
+戊 查看版本
+gcc -v
+
+Thread model: posix
+gcc version 9.1.0 (GCC) 
+
+FAQ：
+VI 小键盘不正常，xshell-> Properties -> Terminal -> Terminal Type=linux。
+
+gcc g++依赖包
+
+Installed:
+  gcc.x86_64 0:4.8.5-36.el7                                                          gcc-c++.x86_64 0:4.8.5-36.el7                                                         
+
+Dependency Installed:
+  cpp.x86_64 0:4.8.5-36.el7          glibc-devel.x86_64 0:2.17-260.el7            glibc-headers.x86_64 0:2.17-260.el7        kernel-headers.x86_64 0:3.10.0-957.el7       
+  libmpc.x86_64 0:1.0.1-3.el7        libstdc++-devel.x86_64 0:4.8.5-36.el7        mpfr.x86_64 0:3.1.1-4.el7                 
+
+
+
