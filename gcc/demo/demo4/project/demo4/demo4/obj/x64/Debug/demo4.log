@@ -1,8 +1,1 @@
-﻿  Validating sources
-  Copying sources remotely to '192.168.80.101'
-  Validating architecture
-  Starting remote build
-  Compiling sources:
-  main.cpp
-  Linking objects
-  demo4.vcxproj -> F:\github\linux\linux\gcc\demo\demo4\project\demo4\demo4\bin\x64\Debug\demo4.out
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Application Type\Linux\1.0\Linux.targets(100,5): error : There are not remote machines configured for remote builds. Please configure a machine using Tools | Options | Cross Platform | Connection Manager.
