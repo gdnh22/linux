@@ -1,13 +1,16 @@
 # Centos7搭建git
 
-//依赖库安装
-2. yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
-3. yum install gcc perl-ExtUtils-MakeMaker
+## 一、依赖库安装
 
-//卸载低版本的 Git
-4. yum remove git
+yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel
 
-   cd git-2.21.0
+yum install gcc perl-ExtUtils-MakeMaker
+
+#卸载低版本的 Git
+
+yum remove git
+
+#下载git-2.21.0
 
 make prefix=/usr/local/git all #编译时间很长
 
@@ -43,7 +46,7 @@ git clone git@154.8.235.117:/home/gitrepo/hiynn.git
 
 
 //端口在非22的情况下（如5000）
-git clone ssh://git@172.16.162.40:5000/home/git/LearnProject.git
+git clone ssh://git@154.8.235.117:5000/home/git/hiynn.git
 
 
 
