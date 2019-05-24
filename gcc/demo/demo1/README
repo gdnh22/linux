@@ -65,9 +65,9 @@ vi CentOS-Base.repo
 [base]
 name=CentOS-$releasever - Base
 # mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
-baseurl=file:///media/CentOS7/ #注意
+baseurl=file:///media/centos7/ #注意
 gpgcheck=0
-gpgkey=file:///media/CentOS7//RPM-GPG-KEY-CentOS-7 #注意
+gpgkey=file:///media/centos7//RPM-GPG-KEY-CentOS-7 #注意
 #改完
 
 yum clean all
